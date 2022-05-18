@@ -3,7 +3,18 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  fireBaseConfig: {
+    apiKey: 'AIzaSyDKNITUlg28OgpSzwK1lfRT2UkA7nNUFMM',
+    authDomain: 'personal-planing.firebaseapp.com',
+    databaseURL:
+      'https://personal-planing-default-rtdb.asia-southeast1.firebasedatabase.app',
+    projectId: 'personal-planing',
+    storageBucket: 'personal-planing.appspot.com',
+    messagingSenderId: '1007566483680',
+    appId: '1:1007566483680:web:b4a4525f6a94a1369d6085',
+    measurementId: 'G-856DVM3BNM',
+  },
 };
 
 /*
