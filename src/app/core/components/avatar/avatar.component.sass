@@ -1,0 +1,37 @@
+:host.rtl
+  direction: rtl
+
+  >.title
+    text-align: right
+
+:host.ltr
+  direction: ltr
+
+  >.title
+    text-align: left
+  
+
+:host
+  cursor: pointer
+  display: inline-flex
+  align-items: center
+
+  >img
+    border-radius: 12px
+    max-width: 50px
+    border: 2px solid var(--gray-300)
+
+  >.title
+    display: inline-flex
+    flex-direction: column
+    margin-inline-start: 8px
+    // @media only screen and (max-width : 425px)
+    //   display: none  
+
+    >.name
+      font-size: 1rem
+      font-weight: 600
+
+    >.email
+      font-size: 0.8rem
+      color: var(--text-secondary)

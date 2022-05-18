@@ -1,1 +1,121 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap')
+@import ./styles/bootstrap-grid
+@import ./styles/variables
+@import ./styles/animations
+
+*
+  box-sizing: border-box
+
+html, body
+  min-height: 100vh
+
+body
+  color: var(--text-primary)
+  font-family: 'Poppins', sans-serif
+  margin: 0
+
+h1, h2, h3, h4, h5, h6, p
+  margin: 0
+.fz-12
+  font-size:var(--fz-12)
+  margin: 0
+  
+.fz-14
+font-size:var(--fz-14)
+
+.w-100
+  width:100%
+
+.lightest-text
+  color: var(--lightest)
+
+.darkest-text
+  color: var(--darkest)
+
+.primary-text
+  color: var(--primary)
+
+.danger-text
+  color: var(--danger-color)
+
+.success-text
+  color: var(--success-color)
+
+.warning-text
+  color: var(--warning-color)
+
+.position-absolute
+  position: absolute
+
+.position-fixed
+  position: fixed
+
+.text-center
+  text-align: center
+
+.text-right
+  text-align: right
+
+.text-left
+  text-align: left
+
+.cursor-pointer
+  cursor: pointer
+
+.break-all
+  word-break: break-all
+  overflow-wrap: anywhere
+
+.white-space-normal
+  white-space: normal
+
+.keep-all
+  word-break: keep-all
+
+.dash-section
+  padding: 18px 0
+
+  > header
+    margin-bottom: 24px
+
+    h1
+      color: var(--gray-700)
+      font-size: 16px
+      font-weight: var(--fw-900)
+      line-height: 19px
+
+    p
+      color: var(--gray-600)
+      font-weight: var(--fw-400)
+      font-size: 12px
+      line-height: 14px
+      margin-top: 8px
+
+    a
+      color: var(--primary)
+
+.message-area
+  padding: 32px
+  text-align: center
+
+  i-icon
+    color: var(--gray-500)
+    font-size: 32px
+
+  p
+    color: var(--gray-700)
+    margin: 8px 0 0
+
+i-image-card
+  i-button
+    color: var(--lightest)
+
+    &:hover::before
+      opacity: .3
+
+    &::before
+      background: var(--darkest)
+      opacity: .2
+
+    + i-button
+      margin-inline-start: 8px

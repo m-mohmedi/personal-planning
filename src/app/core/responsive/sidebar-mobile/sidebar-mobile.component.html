@@ -1,0 +1,21 @@
+<div class="modal-content">
+  <header>
+    <icon class="logo" name="logo"></icon>
+    <icon (click)="closeSidebar()" class="collapse" name="collapse"></icon>
+  </header>
+  <main>
+    <div class="list-items">
+      <a
+        class="item-sidebar"
+        *ngFor="let item of sidebarItems"
+        [routerLink]="item.url"
+        [class]="currentItemActive == item.id ? 'active' : ''"
+        (click)="selectItemSidebar(item.id)"
+      >
+        <icon [name]="item.icon"></icon>
+        <span>{{ item.title }}</span>
+      </a>
+    </div>
+  </main>
+  <footer><icon name="off"></icon><span>Log out</span></footer>
+</div>
