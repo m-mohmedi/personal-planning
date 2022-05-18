@@ -1,0 +1,114 @@
+:host.mini
+  *
+    transition: all .3s ease-in-out
+
+  header
+    display: flex
+    flex-direction: column-reverse
+    align-items: center
+    .logo
+      display: inline-flex
+      height: 1em
+      line-height: 5em
+      min-height: 3em
+      min-width: 2em
+      width: 2em
+      margin-top: 20px
+    .collapse
+      margin: 0
+  >main
+    .list-items
+      gap:16px
+      .item-sidebar
+        color: var(--gray-600)
+        >span
+          display: none
+      .active
+        color: var(--primary)
+        background: var(--gray-200)
+        transform: scale(1.1)
+        >span
+  footer
+    margin-top: auto
+    border-block-start: 1px solid var(--gray-200)
+    color: var(--danger-color)
+    display: flex
+    padding: 8px
+    align-items: center
+    span
+      display: none
+  main
+  footer
+:host
+  transition: all .3s ease-in-out
+  display: inline-flex
+  flex-direction: column
+  padding: 24px
+  border-inline-end: 1px solid var(--gray-200)
+  height: 100vh
+  *
+    transition: all .3s ease-in-out
+  header
+    align-items: center
+    display: flex
+    icon
+      cursor: pointer
+    >.logo
+      display: inline-flex
+      height: 1em
+      line-height: 5em
+      min-height: 3em
+      min-width: 5em
+      width: 8em
+    >.collapse
+      display: inline-flex
+      height: 1.5em
+      line-height: 1.5em
+      min-height: 1.5em
+      min-width: 1.5em
+      width: 1.5em
+      margin-inline-start: auto
+  
+  main
+    >.list-items
+      margin-top: 32px
+      gap:16px
+      display: inline-flex
+      flex-direction: column
+      >.item-sidebar
+        margin-top: 16px
+        all: unset
+        align-items: center
+        border-radius: 12px
+        cursor: pointer
+        display: inline-flex
+        padding: 8px
+        color: var(--gray-600)
+        white-space: nowrap
+        
+        >span
+          margin-inline-start: 16px
+        &:hover
+          background: var(--gray-100)
+      .active
+        color: var(--primary)
+        background: var(--gray-100)
+        transform: scale(1.1)
+        >span
+
+  footer
+    margin-top: auto
+    border-block-start: 1px solid var(--gray-200)
+    color: var(--danger-color)
+    display: flex
+    padding: 8px
+    align-items: center
+    icon
+      cursor: pointer
+    span
+      cursor: pointer
+      margin-inline-start: 16px
+  @media only screen and (max-width : 425px)
+    display: none  
+  
+      
