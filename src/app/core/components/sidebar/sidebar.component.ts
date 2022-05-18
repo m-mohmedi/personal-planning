@@ -1,4 +1,5 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { ItemSidebar } from 'src/app/types/item-sidebar';
 import { IconName } from '../icon/iconPack';
 
@@ -58,12 +59,15 @@ export class SidebarComponent implements OnInit {
 
   @HostBinding('class.mini') miniSidebar: boolean = false;
 
-  constructor() {}
+  constructor(private AuthService: AuthService) {}
 
   ngOnInit() {}
 
   minifySidebar() {
     !this.miniSidebar ? (this.logo = 'logoMini') : (this.logo = 'logo');
     this.miniSidebar = !this.miniSidebar;
+  }
+  logOut() {
+    this.AuthService.SignOut();
   }
 }

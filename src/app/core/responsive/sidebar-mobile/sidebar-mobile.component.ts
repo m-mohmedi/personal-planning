@@ -5,8 +5,8 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { ItemSidebar } from 'src/app/types/item-sidebar';
-import { IconName } from '../../components/icon/iconPack';
 
 @Component({
   selector: 'sidebar-mobile',
@@ -64,7 +64,7 @@ export class SidebarMobileComponent implements OnInit {
 
   @HostBinding('class.show') statusSidebar: boolean = false;
 
-  constructor() {}
+  constructor(private AuthService: AuthService) {}
 
   ngOnInit() {}
 
@@ -75,5 +75,9 @@ export class SidebarMobileComponent implements OnInit {
   selectItemSidebar(item: number) {
     this.currentItemActive = item;
     this.closeSidebar();
+  }
+
+  logOut() {
+    this.AuthService.SignOut();
   }
 }
