@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from '../pages/dashboard/dashboard.component';
 import { FinanceComponent } from '../pages/finance/finance.component';
 import { ForgotPasswordComponent } from '../authentication/forgot-password/forgot-password.component';
 import { HabitsComponent } from '../pages/habits/habits.component';
@@ -12,6 +11,7 @@ import { SignInComponent } from '../authentication/sign-in/sign-in.component';
 import { SignUpComponent } from '../authentication/sign-up/sign-up.component';
 import { VerifyEmailComponent } from '../authentication/verify-email/verify-email.component';
 import { AuthGuard } from './guard/auth.guard';
+import { DashboardComponent } from '../dashboard/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },

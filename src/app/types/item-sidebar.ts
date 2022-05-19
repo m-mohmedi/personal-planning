@@ -1,4 +1,4 @@
-import { IconName } from '../core/components/icon/iconPack';
+import { IconName } from '../icon/icon/iconPack';
 
 export interface ItemSidebar {
   id: number;

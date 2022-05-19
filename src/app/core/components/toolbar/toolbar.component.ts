@@ -1,4 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { User } from 'src/app/types/user';
 
 @Component({
   selector: 'toolbar',
@@ -7,11 +9,16 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
   @Output() mobileSidebar: EventEmitter<boolean> = new EventEmitter();
-  constructor() {}
+
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {}
 
   openMobileSidebar() {
     this.mobileSidebar.emit(true);
+  }
+
+  get user() {
+    return this.authService.user;
   }
 }

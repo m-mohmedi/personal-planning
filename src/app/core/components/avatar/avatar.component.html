@@ -1,5 +1,5 @@
-<img src="../../../../assets/img/avatar/user-1.jpg" />
+<img [src]="user?.photoURL" />
 <div class="title">
-  <span class="name">Mohammadreza</span>
-  <span class="email">mohmedi.work@gmail.com</span>
+  <span class="name">{{ user?.displayName }}</span>
+  <span class="email">{{ user?.email }}</span>
 </div>

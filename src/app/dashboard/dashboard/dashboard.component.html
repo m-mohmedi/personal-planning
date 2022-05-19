@@ -1,0 +1,13 @@
+<sidebar></sidebar>
+
+<main>
+  <toolbar (mobileSidebar)="mobileSidebar($event)"></toolbar>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+</main>
+
+<sidebar-mobile
+  (mobileSidebar)="mobileSidebar($event)"
+  *ngIf="statusMobileSidebar"
+></sidebar-mobile>

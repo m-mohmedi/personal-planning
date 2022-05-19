@@ -5,11 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.sass'],
 })
-export class AppComponent {
-  statusMobileSidebar: boolean = false;
-  title = 'personal-planning';
-
-  mobileSidebar(event: boolean) {
-    this.statusMobileSidebar = event;
-  }
-}
+export class AppComponent {}

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './router/app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { PagesComponent } from './static/pages.component';
@@ -22,6 +21,8 @@ import { SignInComponent } from './authentication/sign-in/sign-in.component';
 import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './authentication/verify-email/verify-email.component';
 import { AuthService } from './services/auth.service';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { AppRoutingModule } from './router/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { AuthService } from './services/auth.service';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
+    DashboardModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],

@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class AuthGuard implements CanActivate {
   constructor(public authService: AuthService, public router: Router) {}
+
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -19,6 +20,7 @@ export class AuthGuard implements CanActivate {
     if (this.authService.isLoggedIn !== true) {
       this.router.navigate(['sign-in']);
     }
+
     return true;
   }
 }

@@ -1,7 +1,7 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
+import { IconName } from 'src/app/icon/icon/iconPack';
 import { AuthService } from 'src/app/services/auth.service';
 import { ItemSidebar } from 'src/app/types/item-sidebar';
-import { IconName } from '../icon/iconPack';
 
 @Component({
   selector: 'sidebar',
