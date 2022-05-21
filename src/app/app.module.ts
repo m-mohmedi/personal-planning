@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { HomeComponent } from './pages/home/home.component';
 import { LearnComponent } from './pages/learn/learn.component';
 import { PersonalPlaningComponent } from './pages/personal-planing/personal-planing.component';
 import { HabitsComponent } from './pages/habits/habits.component';
@@ -27,7 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
+    HomeComponent,
     LearnComponent,
     PersonalPlaningComponent,
     HabitsComponent,

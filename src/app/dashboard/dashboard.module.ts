@@ -6,6 +6,6 @@ import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [DashboardComponent],
-  imports: [CommonModule, CoreModule, RouterModule],
+  imports: [CommonModule, RouterModule, CoreModule],
 })
 export class DashboardModule {}

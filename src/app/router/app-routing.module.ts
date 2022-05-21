@@ -12,6 +12,7 @@ import { SignUpComponent } from '../authentication/sign-up/sign-up.component';
 import { VerifyEmailComponent } from '../authentication/verify-email/verify-email.component';
 import { AuthGuard } from './guard/auth.guard';
 import { DashboardComponent } from '../dashboard/dashboard/dashboard.component';
+import { HomeComponent } from '../pages/home/home.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
@@ -21,6 +22,7 @@ const routes: Routes = [
     component: DashboardComponent,
     canActivate: [AuthGuard],
     children: [
+      { path: '', component: HomeComponent },
       { path: 'learn', component: LearnComponent },
       { path: 'personal-planning', component: PersonalPlaningComponent },
       { path: 'habits', component: HabitsComponent },
