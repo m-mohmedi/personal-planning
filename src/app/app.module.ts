@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { PagesComponent } from './static/pages.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LearnComponent } from './pages/learn/learn.component';
 import { PersonalPlaningComponent } from './pages/personal-planing/personal-planing.component';
@@ -23,11 +22,11 @@ import { VerifyEmailComponent } from './authentication/verify-email/verify-email
 import { AuthService } from './services/auth.service';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { AppRoutingModule } from './router/app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PagesComponent,
     DashboardComponent,
     LearnComponent,
     PersonalPlaningComponent,
@@ -50,6 +49,7 @@ import { AppRoutingModule } from './router/app-routing.module';
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     DashboardModule,
+    ReactiveFormsModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],

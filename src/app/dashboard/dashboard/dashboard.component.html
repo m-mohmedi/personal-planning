@@ -9,5 +9,5 @@
 
 <sidebar-mobile
   (mobileSidebar)="mobileSidebar($event)"
-  *ngIf="statusMobileSidebar"
+  [class]="statusMobileSidebar ? 'show' : ''"
 ></sidebar-mobile>

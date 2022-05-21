@@ -1,7 +1,7 @@
 :host 
   animation: scale-opacity-in .3s ease 0s 1 normal forwards
   opacity: 0
-  display: block
+  display: none
   position: fixed
   z-index: 1
   left: 0
@@ -82,7 +82,8 @@
     span
       cursor: pointer
       margin-inline-start: 16px 
-
+:host.show
+  display: block
 @keyframes scale-opacity-in
   100%
     opacity: 1
