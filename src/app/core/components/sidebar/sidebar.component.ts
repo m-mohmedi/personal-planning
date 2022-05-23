@@ -9,7 +9,7 @@ import { ItemSidebar } from 'src/app/types/item-sidebar';
   styleUrls: ['./sidebar.component.sass'],
 })
 export class SidebarComponent implements OnInit {
-  currentItemActive = 0;
+  currentItemActive = 2;
   logo: IconName = 'logo';
   // miniSidebar: boolean = false;
   sidebarItems: ItemSidebar[] = [
@@ -17,7 +17,7 @@ export class SidebarComponent implements OnInit {
       id: 0,
       title: 'Dashboard',
       icon: 'home',
-      url: '',
+      url: 'home',
     },
     {
       id: 1,

@@ -1,1 +1,24 @@
-<card></card>
+<header>
+  <button (click)="addNewTask = true">New</button>
+
+  <div class="filter-items">
+    <a
+      *ngFor="let item of filterItems"
+      [class]="item.id == currentFilterItem ? 'active' : ''"
+      (click)="currentFilterItem = item.id"
+    >
+      {{ item.title }}
+    </a>
+  </div>
+</header>
+
+<main>
+  <card></card>
+</main>
+
+<footer></footer>
+
+<add-new-task
+  (stateModal)="addNewTask = $event"
+  *ngIf="addNewTask"
+></add-new-task>

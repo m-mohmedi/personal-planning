@@ -23,6 +23,7 @@ import { AuthService } from './services/auth.service';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { AppRoutingModule } from './router/app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddNewTaskComponent } from './modals/add-new-task/add-new-task.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     SignInComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
+    AddNewTaskComponent,
   ],
   imports: [
     BrowserModule,

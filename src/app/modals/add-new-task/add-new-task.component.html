@@ -1,0 +1,59 @@
+<div class="content">
+  <header>
+    <div class="title">
+      <span>Add New Task</span>
+      <small>Velit eu anim consequat culpa fugiat.</small>
+    </div>
+
+    <icon name="close" (click)="closeModal()"></icon>
+  </header>
+
+  <form class="step-1" *ngIf="currentStep == 1" [formGroup]="formAddTask">
+    <div class="feild-item">
+      <span>Name</span>
+      <input type="text" placeholder="Enter Task Name" formControlName="name" />
+    </div>
+
+    <div class="feild-item">
+      <span>Start Time</span>
+      <input
+        type="date"
+        placeholder="Enter Task Name"
+        formControlName="startTime"
+      />
+    </div>
+
+    <div class="feild-item">
+      <span>End Time</span>
+      <input
+        type="date"
+        placeholder="Enter Task Name"
+        formControlName="endTime"
+      />
+    </div>
+  </form>
+
+  <form class="step-2" *ngIf="currentStep == 2" [formGroup]="formAddSubTask">
+    <div class="header">
+      <input formControlName="name" />
+      <button>Add</button>
+    </div>
+    <div class="content">
+      <div class="item" *ngFor="let item of subscribes">
+        <span>{{ item.title }}</span>
+        <icon name="remove"></icon>
+      </div>
+    </div>
+  </form>
+
+  <footer>
+    <button (click)="currentStep = 2" *ngIf="currentStep == 1">Next</button>
+    <button *ngIf="currentStep == 2">Save</button>
+    <button class="outline" *ngIf="currentStep == 1" (click)="closeModal()">
+      Cancel
+    </button>
+    <button class="outline" (click)="currentStep = 1" *ngIf="currentStep == 2">
+      Back
+    </button>
+  </footer>
+</div>
