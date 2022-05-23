@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { get } from 'https';
 interface subscribe {
   id: number;
   title: string;
@@ -11,7 +12,7 @@ interface subscribe {
   styleUrls: ['./add-new-task.component.sass'],
 })
 export class AddNewTaskComponent implements OnInit {
-  currentStep: number = 2;
+  currentStep: number = 1;
   formAddTask!: FormGroup;
   formAddSubTask!: FormGroup;
   subscribes: subscribe[] = [];
@@ -20,21 +21,45 @@ export class AddNewTaskComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.formAddTask = fb.group({
-      name: ['name', [Validators.required, Validators.min(3)]],
+      name: ['', [Validators.required, Validators.min(3)]],
       startTime: ['startTime'],
       endTime: ['endTime'],
     });
 
     this.formAddSubTask = fb.group({
-      name: ['name', [Validators.required, Validators.max(40)]],
+      name: ['', [Validators.required, Validators.max(40)]],
     });
   }
 
   ngOnInit(): void {}
 
+  get getAddSubTaskValid() {
+    return this.formAddSubTask.valid;
+  }
+  get getAddTaskValid() {
+    return this.formAddTask.valid;
+  }
+
   closeModal() {
     this.stateModal.emit(false);
   }
 
-  addSubscribe() {}
+  addSubscribe() {
+    const subTask: subscribe = {
+      id: this.subscribes.length - 1,
+      title: this.formAddSubTask.get('name')?.value,
+      status: false,
+    };
+    if (!this.formAddSubTask.valid) return;
+    this.subscribes.push(subTask);
+
+    this.formAddSubTask.reset();
+    console.log(this.getAddSubTaskValid);
+  }
+
+  deleteSubTask(subtask: subscribe) {
+    this.subscribes = this.subscribes.filter((item: subscribe) => {
+      return item.id != subtask.id;
+    });
+  }
 }

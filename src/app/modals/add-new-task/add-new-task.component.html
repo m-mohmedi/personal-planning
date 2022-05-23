@@ -11,7 +11,12 @@
   <form class="step-1" *ngIf="currentStep == 1" [formGroup]="formAddTask">
     <div class="feild-item">
       <span>Name</span>
-      <input type="text" placeholder="Enter Task Name" formControlName="name" />
+      <input
+        type="text"
+        placeholder="Enter Task Name"
+        formControlName="name"
+        autofocus="autofocus"
+      />
     </div>
 
     <div class="feild-item">
@@ -35,20 +40,29 @@
 
   <form class="step-2" *ngIf="currentStep == 2" [formGroup]="formAddSubTask">
     <div class="header">
-      <input formControlName="name" />
-      <button>Add</button>
+      <input formControlName="name" autofocus="autofocus" />
+      <button [disabled]="!getAddSubTaskValid" (click)="addSubscribe()">
+        Add
+      </button>
     </div>
     <div class="content">
       <div class="item" *ngFor="let item of subscribes">
         <span>{{ item.title }}</span>
-        <icon name="remove"></icon>
+        <icon name="remove" (click)="deleteSubTask(item)"></icon>
       </div>
     </div>
   </form>
 
   <footer>
-    <button (click)="currentStep = 2" *ngIf="currentStep == 1">Next</button>
-    <button *ngIf="currentStep == 2">Save</button>
+    <button
+      [disabled]="!getAddTaskValid"
+      (click)="currentStep = 2"
+      *ngIf="currentStep == 1"
+    >
+      Next
+    </button>
+
+    <button *ngIf="currentStep == 2" [disabled]="!getAddTaskValid">Save</button>
     <button class="outline" *ngIf="currentStep == 1" (click)="closeModal()">
       Cancel
     </button>

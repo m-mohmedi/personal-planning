@@ -58,10 +58,18 @@
         >.item
           display: flex
           align-items: center
-
+          padding: 8px
+          border-radius: 8px
+          cursor: pointer
+          
+          &:hover
+            background: var(--gray-100)
+            >icon
+              display: block
           span
 
           icon
+            display: none
             color: var(--danger-color)
             margin-inline-start: auto
 
