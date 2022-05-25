@@ -52,6 +52,11 @@ export class AuthService {
     return user !== null && user.emailVerified !== false ? true : false;
   }
 
+  get userUid() {
+    const user = JSON.parse(localStorage.getItem('user')!);
+    return user.uid;
+  }
+
   SignIn(email: string, password: string) {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)

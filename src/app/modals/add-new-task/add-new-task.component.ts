@@ -1,11 +1,11 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { get } from 'https';
-interface subscribe {
-  id: number;
-  title: string;
-  status: boolean;
-}
+import { UUID } from 'angular2-uuid';
+import { AuthService } from 'src/app/services/auth.service';
+import { TasksService } from 'src/app/services/tasks.service';
+import { SubTask, Task } from 'src/app/types/task';
+import { v4 as uuidv4 } from 'uuid';
+
 @Component({
   selector: 'add-new-task',
   templateUrl: './add-new-task.component.html',
@@ -15,15 +15,20 @@ export class AddNewTaskComponent implements OnInit {
   currentStep: number = 1;
   formAddTask!: FormGroup;
   formAddSubTask!: FormGroup;
-  subscribes: subscribe[] = [];
+  subscribes: SubTask[] = [];
 
   @Output() stateModal: EventEmitter<boolean> = new EventEmitter();
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private taskService: TasksService,
+    private auth: AuthService
+  ) {
     this.formAddTask = fb.group({
-      name: ['', [Validators.required, Validators.min(3)]],
-      startTime: ['startTime'],
-      endTime: ['endTime'],
+      title: ['', [Validators.required, Validators.min(3)]],
+      description: ['', [Validators.min(3)]],
+      startTime: [''],
+      endTime: [''],
     });
 
     this.formAddSubTask = fb.group({
@@ -31,11 +36,15 @@ export class AddNewTaskComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const u = new UUID();
+    console.log(u);
+  }
 
   get getAddSubTaskValid() {
     return this.formAddSubTask.valid;
   }
+
   get getAddTaskValid() {
     return this.formAddTask.valid;
   }
@@ -44,22 +53,42 @@ export class AddNewTaskComponent implements OnInit {
     this.stateModal.emit(false);
   }
 
-  addSubscribe() {
-    const subTask: subscribe = {
-      id: this.subscribes.length - 1,
-      title: this.formAddSubTask.get('name')?.value,
-      status: false,
-    };
-    if (!this.formAddSubTask.valid) return;
-    this.subscribes.push(subTask);
+  addNewTask() {
+    if (this.formAddTask.invalid) return;
 
-    this.formAddSubTask.reset();
-    console.log(this.getAddSubTaskValid);
+    const { title, description, startTime, endTime } = this.formAddTask.value;
+    const taskNew: Partial<Task> = {
+      userUid: this.auth.userUid,
+      title,
+      description,
+      startTime,
+      endTime,
+      subTask: this.subscribes,
+      createAt: Date.now(),
+      enabled: true,
+    };
+
+    this.taskService.createTask(taskNew);
+    this.closeModal();
   }
 
-  deleteSubTask(subtask: subscribe) {
-    this.subscribes = this.subscribes.filter((item: subscribe) => {
-      return item.id != subtask.id;
+  addSubscribe() {
+    const subTask: SubTask = {
+      uid: uuidv4(),
+      title: this.formAddSubTask.get('name')?.value,
+      status: false,
+      createAt: Date.now(),
+    };
+
+    if (!this.formAddSubTask.valid) return;
+
+    this.subscribes.push(subTask);
+    this.formAddSubTask.reset();
+  }
+
+  deleteSubTask(subtask: SubTask) {
+    this.subscribes = this.subscribes.filter((item: SubTask) => {
+      return item.uid != subtask.uid;
     });
   }
 }

@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
@@ -52,6 +53,7 @@ import { AddNewTaskComponent } from './modals/add-new-task/add-new-task.componen
     AngularFireDatabaseModule,
     DashboardModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],

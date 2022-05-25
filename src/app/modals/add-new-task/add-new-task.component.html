@@ -14,7 +14,7 @@
       <input
         type="text"
         placeholder="Enter Task Name"
-        formControlName="name"
+        formControlName="title"
         autofocus="autofocus"
       />
     </div>
@@ -62,7 +62,13 @@
       Next
     </button>
 
-    <button *ngIf="currentStep == 2" [disabled]="!getAddTaskValid">Save</button>
+    <button
+      (click)="addNewTask()"
+      *ngIf="currentStep == 2"
+      [disabled]="!getAddTaskValid"
+    >
+      Save
+    </button>
     <button class="outline" *ngIf="currentStep == 1" (click)="closeModal()">
       Cancel
     </button>
